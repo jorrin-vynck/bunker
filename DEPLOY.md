@@ -15,6 +15,8 @@ sudo -u bunker /opt/bunker/.venv/bin/pip install 'pywebpush>=2,<3'
 
 Copy `server.py` and `public/` to `/opt/bunker/` (for example with `ops/promote.sh`, see below).
 
+The scripts in `ops/` have to be made executable once, on the computer you run them from: `chmod +x ops/*.sh`.
+
 ## 2. Configure
 
 Settings are environment variables:
