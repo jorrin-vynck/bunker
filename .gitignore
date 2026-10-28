@@ -1,0 +1,14 @@
+# data and secrets never go into the repository
+data/
+*.db
+*.db-wal
+*.db-shm
+media/
+secret.key
+*.pem
+.env
+bunker.env
+backups/
+.venv/
+__pycache__/
+.DS_Store
