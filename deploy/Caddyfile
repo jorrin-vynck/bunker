@@ -1,0 +1,11 @@
+# Replace bunker.example.com with your domain (A record -> your server public IP).
+# Caddy gets and renews the HTTPS certificate by itself.
+bunker.example.com {
+	encode zstd gzip
+	request_body {
+		max_size 220MB
+	}
+	reverse_proxy 127.0.0.1:8000 {
+		flush_interval -1
+	}
+}

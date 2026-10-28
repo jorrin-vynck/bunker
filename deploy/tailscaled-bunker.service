@@ -1,0 +1,23 @@
+[Unit]
+Description=Tailscale node "bunker" (public face of BUNKER only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/sbin/tailscaled --statedir=/var/lib/tailscale-bunker --socket=/run/tailscale-bunker/tailscaled.sock --port=41642 --tun=userspace-networking
+RuntimeDirectory=tailscale-bunker
+StateDirectory=tailscale-bunker
+Restart=on-failure
+NoNewPrivileges=true
+ProtectHome=true
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+ProtectClock=true
+RestrictNamespaces=true
+LockPersonality=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

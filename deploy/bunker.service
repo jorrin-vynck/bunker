@@ -1,0 +1,49 @@
+[Unit]
+Description=BUNKER
+After=network.target
+
+[Service]
+# Own unprivileged user in /opt/bunker: BUNKER is public, so it must not be able to read
+# anything else on this server (home folders, secrets, other services).
+User=bunker
+Group=bunker
+WorkingDirectory=/opt/bunker
+Environment=HOST=127.0.0.1
+Environment=PORT=8000
+Environment=BUNKER_DATA=/var/lib/bunker
+Environment=MEDIA_QUOTA_MB=3000
+Environment=VAPID_SUB=mailto:you@example.com
+# Secrets (ADMIN_TOKEN=...) live in a root-only file, not in this unit
+EnvironmentFile=-/etc/bunker.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=TRUST_PROXY=X-Forwarded-For
+ExecStart=/opt/bunker/.venv/bin/python server.py
+Restart=always
+StateDirectory=bunker
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+RestrictNamespaces=true
+LockPersonality=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectClock=true
+ProtectHostname=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+MemoryMax=1G
+TasksMax=2500
+
+[Install]
+WantedBy=multi-user.target
