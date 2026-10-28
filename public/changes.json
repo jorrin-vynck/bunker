@@ -1,0 +1,21 @@
+{
+  "versions": [
+    {
+      "v": "1.0",
+      "date": "2026-10-28",
+      "notes": [
+        "Boards: five public boards with threads, replies, photos, video and likes. You can edit and delete your own posts.",
+        "Groups: open and closed chats. Closed chats are found by a 4-digit number and a code, and are end-to-end encrypted.",
+        "Photos, video and voice in chats, locked on your phone. Your own camera, with hands-free filming up to 10 minutes.",
+        "Voice: connect your microphone, everyone in the chat hears you, tap your name to mute.",
+        "Reply to a message by pressing it long. Double tap for <3, triple tap for </3.",
+        "Pseudonyms with a 6-digit code to log in on another phone. Anonymous by default.",
+        "Notifications for boards and chats. Closed chats never say who wrote.",
+        "Messages and threads expire. Chats remember a limited number of messages, the oldest turn red before they go.",
+        "No accounts, no logs, no back-ups. Your phone keeps its key to itself and proves ownership per post.",
+        "Admin page to clean up and set the limits. The admin can delete, not read.",
+        "Install page with steps and a QR code, a manifesto, themes graphite and paper, a secret page."
+      ]
+    }
+  ]
+}
